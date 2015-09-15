@@ -36,7 +36,7 @@ for(var i=0; i<300; i++) {
 
 ## See also
 
-Based on http://holger.dammertz.org/stuff/notes_HammersleyOnHemisphere.html
+Based on [Hammersley Points on the Hemisphere](http://holger.dammertz.org/stuff/notes_HammersleyOnHemisphere.html) by Holger Dammertz [2012]
 
 ## License
 
