@@ -1,26 +1,39 @@
 {
   "name": "hammersley",
   "version": "1.0.0",
-  "description": "Computes i-th point in a Hammersley Point Set of size n",
-  "main": "index.js",
-  "license": "MIT",
-  "author": {
-    "name": "Marcin Ignac",
-    "email": "marcin.ignac@gmail.com",
-    "url": "https://github.com/vorg"
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "node test.js"
-  },
-  "keywords": [],
+  "description": "Computes i-th point in a Hammersley Point Set of size n.",
+  "keywords": [
+    "hammersley",
+    "point-set",
+    "low-discrepancy",
+    "quasirandom",
+    "sequence"
+  ],
+  "homepage": "https://github.com/vorg/hammersley",
+  "bugs": "https://github.com/vorg/hammersley/issues",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vorg/hammersley.git"
+    "url": "git+https://github.com/vorg/hammersley.git"
   },
-  "homepage": "https://github.com/vorg/hammersley",
-  "bugs": {
-    "url": "https://github.com/vorg/hammersley/issues"
+  "license": "MIT",
+  "author": "Marcin Ignac (https://github.com/vorg)",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "dev": "snowdev dev",
+    "release": "snowdev release"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1",
+    "snowdev": ">=2.3.x"
   }
 }
