@@ -64,8 +64,8 @@
         context.beginPath();
 
         context.arc(
-          halfSize + (x - 0.5) * scale,
-          halfSize + (y - 0.5) * scale,
+          halfSize - (0.5 - x) * scale,
+          halfSize + (0.5 - y) * scale,
           (size / pointsCount) * 3,
           0,
           Math.PI * 2,
