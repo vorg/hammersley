@@ -1,6 +1,6 @@
 {
   "name": "hammersley",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Computes i-th point in a Hammersley Point Set of size n.",
   "keywords": [
     "hammersley",
