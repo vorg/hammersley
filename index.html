@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>hammersley by Marcin Ignac (https://github.com/vorg)</title>
+    <style>
+      :root {
+        --color-dark: #404040;
+        --color-light: #f2f2f2;
+        --color-accent: #fd5e62;
+      }
+
+      body {
+        margin: 0;
+        overscroll-behavior: none;
+        font-family: sans-serif;
+        color: var(--color-dark);
+        background-color: var(--color-light);
+      }
+
+      main {
+        padding: 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>hammersley</h1>
+    </main>
+    <script type="module">
+      import hammersley from "./index.js";
+
+      const size = 512;
+      const halfSize = size / 2;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = canvas.height = size;
+      const context = canvas.getContext("2d");
+      document.querySelector("main").appendChild(canvas);
+
+      const pointsCount = 256;
+      const points = Array.from({ length: pointsCount }, (_, index) =>
+        hammersley(index, pointsCount),
+      );
+
+      context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+      context.fillStyle = `${window
+        .getComputedStyle(document.documentElement)
+        .getPropertyValue("--color-light")}`;
+      context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+
+      const scale = 0.96 * size;
+
+      for (let i = 0; i < points.length; i++) {
+        const [x, y] = points[i];
+        const t = i / points.length;
+
+        context.fillStyle = `oklch(from ${window
+          .getComputedStyle(document.documentElement)
+          .getPropertyValue("--color-accent")} l calc(c * ${t}) h)`;
+
+        context.beginPath();
+
+        context.arc(
+          halfSize - (0.5 - x) * scale,
+          halfSize + (0.5 - y) * scale,
+          (size / pointsCount) * 3,
+          0,
+          Math.PI * 2,
+        );
+
+        context.fill();
+        context.stroke();
+      }
+    </script>
+  </body>
+</html>
